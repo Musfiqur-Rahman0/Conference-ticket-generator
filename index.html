@@ -13,12 +13,26 @@
         .primary-font {
             font-family: "Inconsolata", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
+
+        #container-box {
+            background-image: url(assets/images/background-desktop.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        @media screen and (max-width: 768px) {
+            #container-box {
+                background-image: url(assets/images/background-mobile.png);
+            }
+        }
     </style>
 </head>
 
-<body class="primary-font bg-black text-white">
+<body id="container-box" class="primary-font bg-black text-white relative h-screen">
 
-    <div class="container mx-auto flex flex-col items-center pt-5 gap-5">
+
+    <div class="container mx-auto flex flex-col items-center pt-5 gap-5 z-40">
         <!-- title  box-->
         <img src="assets/images/logo-full.svg" alt="">
         <div id="title-box" class="flex flex-col items-center text-center">
@@ -124,6 +138,15 @@
             </div>
         </form>
 
+    </div>
+    <div class="hidden sm:block absolute top-0 right-2">
+        <img src="assets/images/pattern-squiggly-line-top.svg " alt="">
+    </div>
+    <div class="hidden sm:block absolute bottom-0 left-0">
+        <img src="assets/images/pattern-squiggly-line-bottom-desktop.svg" height="400" width="400" alt="">
+    </div>
+    <div class="hidden sm:block absolute top-1/2 right-[10%] transform -translate-y-1/2">
+        <img src="assets/images/pattern-circle.svg " alt="">
     </div>
 
     <script src="js/utilities.js"></script>
