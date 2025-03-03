@@ -17,3 +17,11 @@ const seletedFileBtnsCtn = document.getElementById(
 const removeBtn = document.getElementById("remove-image-btn");
 const changeBtn = document.getElementById("change-image-btn");
 const formContainer = document.getElementById("form-container");
+const userName = document.getElementById("user-name");
+const userEmail = document.getElementById("user-gmail");
+const userAvatar = document.getElementById("user-image");
+const userGithub = document.getElementById("github ");
+const ticketId = document.getElementById("ticket-no");
+const currentDate = document.getElementById("date");
+const ticketContainer = document.getElementById("ticket-container");
+console.log(ticketContainer);

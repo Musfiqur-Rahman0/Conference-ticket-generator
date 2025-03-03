@@ -96,5 +96,34 @@ generateBtn.addEventListener("click", (e) => {
     }
   });
   formContainer.style.display = "none";
-  console.log(userData);
+  ticketContainer.style.display = "block";
+  setUserData(userData);
 });
+
+// function to set the user data dynamically.
+function setUserData(data) {
+  const { img, name, email, github } = data;
+  userAvatar.src = img;
+  userName.textContent = name;
+  userEmail.textContent = email;
+  userGithub.textContent = `@${github}`;
+  ticketId.textContent = getRandomNum();
+}
+
+// function to get a random ticket number between 5digit and a # hash
+function getRandomNum() {
+  const random = Math.floor(Math.random() * 10000);
+  const ticketNumber = "#" + String(random).padStart(5, "0");
+  return ticketNumber;
+}
+
+// function to get the current time in mm, date , year format.
+function getDate() {
+  const today = new Date();
+  const month = today.toLocaleDateString("en-US", { month: "short" });
+  const date = today.getDate();
+  const year = today.getFullYear();
+  const todayDate = `${month} ${date}, ${year}`;
+  currentDate.textContent = todayDate;
+}
+getDate();
