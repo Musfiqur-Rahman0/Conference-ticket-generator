@@ -24,4 +24,5 @@ const userGithub = document.getElementById("github ");
 const ticketId = document.getElementById("ticket-no");
 const currentDate = document.getElementById("date");
 const ticketContainer = document.getElementById("ticket-container");
+const titleBox = document.getElementById("title-box");
 console.log(ticketContainer);

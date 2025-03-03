@@ -97,6 +97,7 @@ generateBtn.addEventListener("click", (e) => {
   });
   formContainer.style.display = "none";
   ticketContainer.style.display = "block";
+  titleBox.classList.add("hidden");
   setUserData(userData);
 });
 
