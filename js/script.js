@@ -5,8 +5,6 @@ fileUpload.addEventListener("change", (e) => {
   const fileSize = Number((file.size / 1024).toFixed(2)); // converted this in kb
   const maxFileSize = 500; // in kb
 
-  // console.log(extentsion !== "png  extentsion == "jpg");
-  // console.log(fileSize > maxFileSize);
   if (file) {
     const allowedTypes = ["png", "jpg"];
     if (!allowedTypes.includes(extentsion)) {
@@ -22,7 +20,19 @@ fileUpload.addEventListener("change", (e) => {
     } else {
       tooltipContainer.classList.remove("text-red-500");
       tooltipText.classList.add("text-gray-400");
-      console.log("success!");
+      imagePreview.src = URL.createObjectURL(file);
+      fileTextInfo.style.display = "none";
+      seletedFileBtnsCtn.classList.remove("hidden");
+      seletedFileBtnsCtn.addEventListener("click", (e) => {
+        const targetedElement = e.target;
+        if (targetedElement === removeBtn) {
+          imagePreview.src = "assets/images/icon-upload.svg";
+          fileTextInfo.style.display = "block";
+          seletedFileBtnsCtn.classList.add("hidden");
+        } else if (targetedElement === changeBtn) {
+          fileUpload.click();
+        }
+      });
     }
   }
 });
@@ -62,7 +72,6 @@ tooltip.innerHTML = `
 
 gmailInput.addEventListener("change", (e) => {
   e.preventDefault();
-  // console.log(e.target.files);
   const userGmail = gmailInput.value;
   const gmail = isValidEmail(userGmail);
   if (!gmail) {
@@ -78,7 +87,14 @@ generateBtn.addEventListener("click", (e) => {
   const userData = {};
   const keys = ["img", "name", "email", "github"];
   inputs.forEach((input, index) => {
-    userData[keys[index]] = input.value;
+    if (keys[index] === "img") {
+      const file = input.files[0];
+      const url = URL.createObjectURL(file);
+      userData[keys[index]] = url;
+    } else {
+      userData[keys[index]] = input.value;
+    }
   });
+  formContainer.style.display = "none";
   console.log(userData);
 });
