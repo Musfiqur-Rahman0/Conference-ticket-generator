@@ -26,4 +26,10 @@ const currentDate = document.getElementById("date");
 const ticketContainer = document.getElementById("ticket-container");
 const titleBox = document.getElementById("title-box");
 const userName2 = document.getElementById("user-name-2");
-console.log(ticketContainer);
+
+function addClass(element, className) {
+  element.classList.add(className);
+}
+function removeClass(element, className) {
+  element.classList.remove(className);
+}

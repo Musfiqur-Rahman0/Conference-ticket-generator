@@ -8,27 +8,28 @@ fileUpload.addEventListener("change", (e) => {
   if (file) {
     const allowedTypes = ["png", "jpg"];
     if (!allowedTypes.includes(extentsion)) {
-      tooltipContainer.classList.add("text-red-500");
-      tooltipText.classList.remove("text-gray-400");
+      addClass(tooltipContainer, "text-red-500");
+
+      removeClass(tooltipText, "text-gray-400");
       tooltipText.innerText = "Please select a png or jpg file to upload!";
       return;
     } else if (fileSize > maxFileSize) {
-      tooltipContainer.classList.add("text-red-500");
-      tooltipText.classList.remove("text-gray-400");
+      addClass(tooltipContainer, "text-red-500");
+      removeClass(tooltipText, "text-gray-400");
       tooltipText.innerText =
         "File too large. Please upload a photo under 500kb!";
     } else {
       tooltipContainer.classList.remove("text-red-500");
-      tooltipText.classList.add("text-gray-400");
+      addClass(tooltipText, "text-gray-400");
       imagePreview.src = URL.createObjectURL(file);
       fileTextInfo.style.display = "none";
-      seletedFileBtnsCtn.classList.remove("hidden");
+      removeClass(seletedFileBtnsCtn, "hidden");
       seletedFileBtnsCtn.addEventListener("click", (e) => {
         const targetedElement = e.target;
         if (targetedElement === removeBtn) {
           imagePreview.src = "assets/images/icon-upload.svg";
           fileTextInfo.style.display = "block";
-          seletedFileBtnsCtn.classList.add("hidden");
+          addClass(seletedFileBtnsCtn, "hidden");
         } else if (targetedElement === changeBtn) {
           fileUpload.click();
         }
@@ -75,7 +76,7 @@ gmailInput.addEventListener("change", (e) => {
   const userGmail = gmailInput.value;
   const gmail = isValidEmail(userGmail);
   if (!gmail) {
-    errorMassage.classList.remove("hidden");
+    removeClass(errorMassage, "hidden");
     errorMassage.appendChild(tooltip);
   } else {
     errorMassage.remove();
@@ -97,7 +98,7 @@ generateBtn.addEventListener("click", (e) => {
   });
   formContainer.style.display = "none";
   ticketContainer.style.display = "block";
-  titleBox.classList.add("hidden");
+  addClass(titleBox, "hidden");
   setUserData(userData);
 });
 
