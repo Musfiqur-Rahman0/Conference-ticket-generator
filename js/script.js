@@ -106,6 +106,7 @@ function setUserData(data) {
   const { img, name, email, github } = data;
   userAvatar.src = img;
   userName.textContent = name;
+  userName2.textContent = name;
   userEmail.textContent = email;
   userGithub.textContent = `@${github}`;
   ticketId.textContent = getRandomNum();
